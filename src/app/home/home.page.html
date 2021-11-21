@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Cep
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating" >Digite o CEP:</ion-label>
+    <ion-input [(ngModel)]="cepInput"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="getEndereco()" color="warning" expand="block" fill="solid" shape="round">
+    Calcular
+  </ion-button>
+
+  <ion-row>
+    <ion-col col-12>
+        <ion-list class="pesquisa">
+            <ion-item *ngIf="endereco.logradouro">
+                Rua:<br> {{ endereco.logradouro}}
+              </ion-item >
+              <ion-item *ngIf="endereco.bairro">
+                Bairro:<br> {{ endereco.bairro }}
+              </ion-item >
+              <ion-item *ngIf="endereco.localidade">
+                Cidade:<br> {{ endereco.localidade }}
+              </ion-item>
+              <ion-item *ngIf="endereco.uf">
+                Estado:<br> {{ endereco.uf}}
+              </ion-item >
+        </ion-list>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
